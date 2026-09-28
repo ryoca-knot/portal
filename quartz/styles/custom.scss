@@ -143,3 +143,31 @@
   }
 }
 
+// Explorer: one line per entry
+.left .explorer {
+  .explorer-content li > a {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .folder-container {
+    min-width: 0;
+
+    & > div {
+      flex: 1;
+      min-width: 0;
+    }
+
+    & div > a,
+    & div > button,
+    & div > button > span {
+      display: block;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
