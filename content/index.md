@@ -29,8 +29,8 @@ MixCloud: [DJ Archive][4]
 
 # 主なコンテンツ
 
-- [日記](/tags/diary)
-- [[音楽]](/tags/music)
+- [日記(diary)](/tags/diary)
+- [音楽(music)](/tags/music)
 - [[未定]]
 
 
