@@ -1,6 +1,6 @@
 ---
 title: "NowListening [ver.20260929]"
-tags: [Music, ]
+tags: [music, ]
 ---
 
 
