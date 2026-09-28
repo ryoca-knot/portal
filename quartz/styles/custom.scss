@@ -183,3 +183,11 @@
     }
   }
 }
+
+// Graph view pinned to the bottom of the left sidebar
+@media all and not ($mobile) {
+  .left > .graph {
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+}
