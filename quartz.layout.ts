@@ -1,6 +1,5 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-import LikeButton from "./quartz/components/LikeButton"
 import ChangeLog from "./quartz/components/ChangeLog"
 import PageViewers from "./quartz/components/PageViewers"
 
@@ -51,7 +50,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   afterBody: [
     ChangeLog(),
-    LikeButton(),
+    /LikeButton(),
     
   ],
 }
