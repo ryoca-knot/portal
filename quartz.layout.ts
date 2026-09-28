@@ -16,6 +16,14 @@ export const sharedPageComponents: SharedLayout = {
   }),
 }
 
+// latest 3 updated notes shown in the left sidebar
+const recentNotes = Component.RecentNotes({
+  title: "最新の更新",
+  limit: 3,
+  showTags: false,
+  filter: (f) => f.slug !== "index",
+})
+
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
@@ -41,6 +49,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
+    recentNotes,
     Component.Explorer(),
   ],
   right: [
@@ -70,6 +79,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
+    recentNotes,
     Component.Explorer(),
   ],
   right: [],
