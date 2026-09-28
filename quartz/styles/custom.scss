@@ -99,3 +99,47 @@
     }
   }
 }
+
+// Recent Updates: compact, one line per note, no dates
+.left .recent-notes {
+  & > h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--dark);
+  }
+
+  & > ul.recent-ul {
+    margin: 0.5rem 0 0 0;
+
+    & > li {
+      margin: 0.15rem 0;
+
+      .section > .meta {
+        display: none;
+      }
+
+      .section > .desc > h3 {
+        margin: 0;
+        font-size: 0.85rem;
+        font-weight: normal;
+        line-height: 1.5;
+
+        & > a {
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          color: var(--dark);
+          opacity: 0.75;
+          padding: 0;
+
+          &:hover {
+            color: var(--tertiary);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+

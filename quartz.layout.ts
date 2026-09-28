@@ -18,7 +18,7 @@ export const sharedPageComponents: SharedLayout = {
 
 // latest 3 updated notes shown in the left sidebar
 const recentNotes = Component.RecentNotes({
-  title: "最新の更新",
+  title: "Recent Updates",
   limit: 3,
   showTags: false,
   filter: (f) => f.slug !== "index",
