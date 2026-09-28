@@ -30,7 +30,7 @@ MixCloud: [DJ Archive][4]
 # 主なコンテンツ
 
 - [日記](/tags/diary)
-- [[未定]]
+- [[音楽]](/tags/music)
 - [[未定]]
 
 
