@@ -51,9 +51,11 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     recentNotes,
     Component.Explorer(),
+    Component.DesktopOnly(Component.Graph()),
   ],
   right: [
-    Component.Graph(),
+    // the left sidebar collapses into a top bar on mobile, so keep the graph here there
+    Component.MobileOnly(Component.Graph()),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
