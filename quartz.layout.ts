@@ -50,7 +50,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   afterBody: [
     ChangeLog(),
-    /LikeButton(),
+    //LikeButton(),
     
   ],
 }
