@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // put your custom CSS here!
 
@@ -97,6 +98,17 @@
     .auto-card-link-description {
       -webkit-line-clamp: 1;
     }
+  }
+}
+
+// Left sidebar: "Recent Updates" and "Explorer" as separate cards
+@media all and not ($mobile) {
+  .left .recent-notes,
+  .left .explorer {
+    box-sizing: border-box;
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
   }
 }
 
