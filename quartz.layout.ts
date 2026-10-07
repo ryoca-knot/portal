@@ -17,6 +17,7 @@ export const sharedPageComponents: SharedLayout = {
         { label: "About", slug: "about" },
         { label: "Links", slug: "links" },
         { label: "Event", slug: "events" },
+        { label: "Trifourlium", slug: "trifourlium" },
         { label: "Diary", slug: "tags/diary", match: ["Diary"], dividerBefore: true },
         { label: "Music", slug: "tags/music", match: ["NowListening"] },
       ],

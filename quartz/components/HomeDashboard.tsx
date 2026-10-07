@@ -14,7 +14,7 @@ interface Options {
 
 const defaultOptions: Options = {
   limit: 6,
-  exclude: ["index", "about", LINKS_SLUG, EVENTS_SLUG],
+  exclude: ["index", "about", "trifourlium", LINKS_SLUG, EVENTS_SLUG],
 }
 
 // Home: latest posts as a multi-column list (title + updated date)
