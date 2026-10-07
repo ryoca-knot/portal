@@ -1,0 +1,118 @@
+@use "../../styles/variables.scss" as *;
+
+:root {
+  --site-nav-h: 3.5rem;
+}
+
+.site-nav {
+  box-sizing: border-box;
+  max-width: 1500px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "title links tools";
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-nav-title {
+  grid-area: title;
+  font-family: var(--titleFont);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--dark) !important;
+  white-space: nowrap;
+}
+
+.site-nav-links {
+  grid-area: links;
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  & li {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  & a {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    color: var(--darkgray);
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      color: var(--tertiary);
+    }
+
+    &.active {
+      color: var(--secondary);
+      border-bottom-color: var(--secondary);
+    }
+  }
+}
+
+.site-nav-tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  & .search {
+    flex-grow: 0;
+    min-width: 10rem;
+  }
+}
+
+@media all and ($mobile) {
+  :root {
+    --site-nav-h: 5.75rem;
+  }
+
+  .site-nav {
+    padding: 0.5rem 1rem 0 1rem;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "title tools"
+      "links links";
+    row-gap: 0.25rem;
+    column-gap: 0.75rem;
+  }
+
+  .site-nav-tools .search {
+    min-width: 0;
+  }
+
+  .site-nav-links a {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+// divider between page links and tag links
+.site-nav-links li.divider-before {
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    width: 1px;
+    height: 1.2rem;
+    margin: 0 0.5rem;
+    background-color: var(--lightgray);
+  }
+}
