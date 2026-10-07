@@ -110,7 +110,7 @@ const config: QuartzConfig = {
     pageTitle: "RyoCa Pages",
     pageTitleSuffix: "",
     enableSPA: true,
-    enablePopovers: true,
+    enablePopovers: false, // hover preview off for now (quartz/components/scripts/popover.inline.ts is kept)
     analytics: {
       provider: "plausible",
     },
