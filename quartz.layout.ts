@@ -6,12 +6,26 @@ import PageViewers from "./quartz/components/PageViewers"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
+  // full-width navigation bar at the top of every page
+  header: [
+    Component.SiteNav({
+      links: [
+        { label: "Home", slug: "/" },
+        { label: "About", slug: "about" },
+        { label: "出演履歴", slug: "events" },
+        { label: "Links", slug: "links" },
+        { label: "Diary", slug: "tags/diary", match: ["Diary"], dividerBefore: true },
+        { label: "Music", slug: "tags/music", match: ["NowListening"] },
+      ],
+      components: [Component.Search(), Component.Darkmode(), Component.ReaderMode()],
+    }),
+  ],
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      X: "https://x.com/ryoca_knot",
+      Twitch: "https://www.twitch.tv/ryoca_knot",
+      Mixcloud: "https://www.mixcloud.com/hanazono/",
     },
   }),
 }
@@ -36,23 +50,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
     PageViewers(),
   ],
-  left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-    recentNotes,
-    Component.Explorer(),
-    Component.DesktopOnly(Component.Graph()),
-  ],
+  left: [recentNotes, Component.Explorer(), Component.DesktopOnly(Component.Graph())],
   right: [
     // the left sidebar collapses into a top bar on mobile, so keep the graph here there
     Component.MobileOnly(Component.Graph()),
@@ -62,27 +60,13 @@ export const defaultContentPageLayout: PageLayout = {
   afterBody: [
     ChangeLog(),
     //LikeButton(),
-    
+
   ],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
-  left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
-    recentNotes,
-    Component.Explorer(),
-  ],
+  left: [recentNotes, Component.Explorer()],
   right: [],
 }

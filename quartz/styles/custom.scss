@@ -191,3 +191,26 @@
     flex-shrink: 0;
   }
 }
+
+// Full-width site nav (SiteNav.tsx): keep sticky sidebars below the bar and
+// drop the large top spacing that used to make room for the page title
+.page > #quartz-body {
+  & .sidebar {
+    top: var(--site-nav-h);
+    height: calc(100vh - var(--site-nav-h));
+    padding-top: 2rem;
+  }
+
+  & .page-header {
+    margin-top: 2rem;
+    @media all and ($mobile) {
+      margin-top: 0;
+    }
+  }
+
+  @media all and ($mobile) {
+    & .sidebar.left {
+      padding-top: 1rem;
+    }
+  }
+}
