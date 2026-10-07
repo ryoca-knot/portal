@@ -15,8 +15,8 @@ export const sharedPageComponents: SharedLayout = {
       links: [
         { label: "Home", slug: "/" },
         { label: "About", slug: "about" },
-        { label: "出演履歴", slug: "events" },
         { label: "Links", slug: "links" },
+        { label: "Event", slug: "events" },
         { label: "Diary", slug: "tags/diary", match: ["Diary"], dividerBefore: true },
         { label: "Music", slug: "tags/music", match: ["NowListening"] },
       ],
