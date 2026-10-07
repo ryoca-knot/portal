@@ -2,6 +2,7 @@
 title: はじめに
 name: RyoCa
 reading: りょか / りょーか
+avatar: Ryoca_hpb_sq.png
 bio: VRChatを中心にDJをしています。日記や最近聴いている音楽をゆるく置いています。
 badges:
   - DJ
