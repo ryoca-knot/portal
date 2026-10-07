@@ -24,6 +24,10 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import SiteNav from "./SiteNav"
+import LinkCards from "./LinkCards"
+import EventTimeline from "./EventTimeline"
+import ProfileCard from "./ProfileCard"
+import HomeDashboard from "./HomeDashboard"
 
 export {
   ArticleTitle,
@@ -52,4 +56,8 @@ export {
   Flex,
   ConditionalRender,
   SiteNav,
+  LinkCards,
+  EventTimeline,
+  ProfileCard,
+  HomeDashboard,
 }

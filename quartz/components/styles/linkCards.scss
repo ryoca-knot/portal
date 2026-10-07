@@ -1,0 +1,65 @@
+@use "../../styles/variables.scss" as *;
+
+.link-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+
+  & .link-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+    background-color: var(--light);
+    color: var(--darkgray);
+    font-weight: normal;
+    text-decoration: none;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease;
+
+    &:is(a):hover {
+      border-color: var(--tertiary);
+      transform: translateY(-2px);
+    }
+
+    // hide Quartz's external-link arrow
+    & .external-icon {
+      display: none;
+    }
+  }
+
+  & .link-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--highlight);
+    color: var(--secondary);
+  }
+
+  & .link-card-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  & .link-card-label {
+    color: var(--dark);
+    font-weight: $semiBoldWeight;
+  }
+
+  & .link-card-note {
+    color: var(--gray);
+    font-size: 0.8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

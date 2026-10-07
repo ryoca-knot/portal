@@ -3,6 +3,9 @@ import * as Component from "./quartz/components"
 import ChangeLog from "./quartz/components/ChangeLog"
 import PageViewers from "./quartz/components/PageViewers"
 
+const isSlug = (slug: string) => (page: { fileData: { slug?: string } }) =>
+  page.fileData.slug === slug
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
@@ -20,7 +23,19 @@ export const sharedPageComponents: SharedLayout = {
       components: [Component.Search(), Component.Darkmode(), Component.ReaderMode()],
     }),
   ],
-  afterBody: [],
+  // PageLayout has no afterBody, so page-specific widgets live here behind ConditionalRender
+  afterBody: [
+    Component.ConditionalRender({
+      component: Component.HomeDashboard(),
+      condition: isSlug("index"),
+    }),
+    Component.ConditionalRender({
+      component: Component.EventTimeline(),
+      condition: isSlug("events"),
+    }),
+    ChangeLog(),
+    //LikeButton(),
+  ],
   footer: Component.Footer({
     links: {
       X: "https://x.com/ryoca_knot",
@@ -45,22 +60,34 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.ArticleTitle(),
-    Component.ContentMeta(),
+    // the profile card replaces the title / meta on the home page
+    Component.ConditionalRender({ component: Component.ProfileCard(), condition: isSlug("index") }),
+    Component.ConditionalRender({
+      component: Component.ArticleTitle(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.ContentMeta(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
     Component.TagList(),
     PageViewers(),
+    Component.ConditionalRender({ component: Component.LinkCards(), condition: isSlug("links") }),
   ],
-  left: [recentNotes, Component.Explorer(), Component.DesktopOnly(Component.Graph())],
+  left: [
+    // no "Recent Updates" on the home page (it already lists the latest posts)
+    Component.ConditionalRender({
+      component: recentNotes,
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.Explorer(),
+    Component.DesktopOnly(Component.Graph()),
+  ],
   right: [
     // the left sidebar collapses into a top bar on mobile, so keep the graph here there
     Component.MobileOnly(Component.Graph()),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
-  ],
-  afterBody: [
-    ChangeLog(),
-    //LikeButton(),
-
   ],
 }
 

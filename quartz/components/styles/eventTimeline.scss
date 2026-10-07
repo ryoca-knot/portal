@@ -1,0 +1,100 @@
+@use "../../styles/variables.scss" as *;
+
+.event-summary {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.event-empty {
+  color: var(--gray);
+}
+
+.event-year > h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+
+  & .event-count {
+    color: var(--gray);
+    font-size: 0.85rem;
+    font-weight: normal;
+  }
+}
+
+ul.event-list {
+  list-style: none;
+  margin: 0.5rem 0 1.5rem 0;
+  padding: 0 0 0 1rem;
+  border-left: 2px solid var(--lightgray);
+
+  & > li.event-item {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    margin: 0 0 0.9rem 0;
+
+    // timeline dot
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(-1rem - 6px);
+      top: 0.45rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--lightgray);
+    }
+  }
+
+  &.upcoming > li.event-item::before {
+    background-color: var(--secondary);
+  }
+}
+
+.event-date {
+  flex-shrink: 0;
+  font-family: var(--codeFont);
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.6rem;
+}
+
+.event-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.event-title {
+  color: var(--dark);
+  font-weight: $semiBoldWeight;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.event-role {
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background-color: var(--highlight);
+  color: var(--secondary);
+  font-weight: $semiBoldWeight;
+}
+
+.event-note {
+  font-size: 0.85rem;
+  color: var(--darkgray);
+}
+
+@media all and ($mobile) {
+  ul.event-list > li.event-item {
+    flex-direction: column;
+    gap: 0;
+  }
+}
