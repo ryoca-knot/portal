@@ -214,3 +214,20 @@
     }
   }
 }
+
+// Explorer card: Quartz collapses the explorer by shrinking it to 1.2rem, which clips
+// the title once the card padding/border is added. Hide the list instead.
+@media all and not ($mobile) {
+  .left .explorer {
+    min-height: auto;
+    flex-shrink: 1;
+
+    &.collapsed {
+      flex: 0 0 auto;
+
+      & > .explorer-content {
+        display: none;
+      }
+    }
+  }
+}
